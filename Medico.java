@@ -1,29 +1,30 @@
-package Aulas;
+package Exercícios;
 
-public class Medico {
+public class Medico extends Plano {
+	protected String nome;
 	private int crm;
-	private String nome;
-	private double salario;
-	private double consulta;
-	public static int TotalDeMedicos;
 	
-	public Medico()  {
-		TotalDeMedicos += 1;
-	}
-		
-	public Medico (int crm, String nome, double salario, double consulta) {
-		this();
-		this.crm = crm;
+	public Medico(String empresa, String nome, int crm) {
+		super(empresa);
 		this.nome = nome;
-		this.salario = salario;
-		this.consulta = consulta;
-    }
-	
-	public void pagamentoDinheiro() {
-		this.salario += this.consulta * 0.7; 
-	}
-	public void pagamentoPlano() {
-		this.salario += this.consulta * 0.7; 
+		this.crm = crm;
 	}
 	
+	@Override
+	public String toString() {
+		return super.toString() + " Médico: " + nome;
+	}
+	
+	public String getNome() {
+		return nome;
+	}
+	
+	public int getCrm() {
+		return crm;
+	}
+	
+	@Override
+	public double calcularPagamento() {
+		return valorPago = super.calcularPagamento() * 1.10;
+	}
 }
