@@ -1,23 +1,25 @@
-package Exercícios;
+package aula;
 
 public class Funcionario {
-	protected String nome;
-	protected String cpf;
-	protected double salario;
-	protected String turno;
+	private String nome;
+	private String cargo;
+	private double salario;
 	
-	public Funcionario(String nome, double salario) {
+	public Funcionario(String nome, String cargo, double salario) {
+		super();
 		this.nome = nome;
+		this.cargo = cargo;
 		this.salario = salario;
+	}	
+		
+	public void abonoSalario (double abono) {
+			this.salario += abono;
 		
 	}
 	
+	@Override
 	public String toString() {
-		return String.format("Funcionario - nome: %s, salario: %.2f",
-				this.nome + " " + this.salario);
+		return String.format("funcionario - Nome: %s, Cargo: %s, Salario: %.2f");
 	}
 	
-	public void calcularParticipacao() {
-		this.salario += this.salario * 0.01;
-	}
 }
